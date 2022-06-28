@@ -1,7 +1,9 @@
 import React,{useEffect,useState} from 'react';
 import Map, {Marker,Popup} from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import {Room,Star} from '@material-ui/icons'; 
+
+import RoomIcon from '@mui/icons-material/Room';
+import StarIcon from '@mui/icons-material/Star';
 import "./App.css";
 import {axiosInstance} from './config';
 import {format} from 'timeago.js';
@@ -92,13 +94,13 @@ const handleAddClick = (e)=>{
         pins.map((p)=> {
          return(<>
             <Marker latitude={p.lat} longitude={p.long} color="red">
-              <Room 
+              <RoomIcon 
               size='12px'
               style={{color:p.username===currentUser ?'tomato':'slateblue'}}
               onClick={() =>handleMarkerClick(p._id)}
               cursor='pointer'
               >
-              </Room>
+              </RoomIcon>
             </Marker>
             {p._id===currentPlaceId &&
               <Popup 
@@ -117,7 +119,7 @@ const handleAddClick = (e)=>{
                   <p className='desc'>{p.desc}</p>
                   <label>Rating</label>
                     <div className='Stars'>
-                      {Array(p.rating).fill(<Star className='star'/>)}
+                      {Array(p.rating).fill(<StarIcon className='star'/>)}
                       
                     </div>
                   <label>Information</label>

@@ -1,5 +1,8 @@
 import "./Register.css"
-import {Room,Cancel} from '@material-ui/icons'; 
+
+import RoomIcon from '@mui/icons-material/Room';
+import CancelIcon from '@mui/icons-material/Cancel';
+
 import { useState,useRef } from "react";
 import {axiosInstance} from "../config";
 
@@ -33,7 +36,7 @@ export default function Register({setShowRegister}){
     return(
         <div className="registerContainer">
             <div className="logo">
-                <Room/>
+                <RoomIcon/>
                 Pin it here!
             </div>
                 <form onSubmit={handleSubmit}>
@@ -46,7 +49,7 @@ export default function Register({setShowRegister}){
                     {error &&
                     <span className="error"> Login failed!</span>}
                 </form>
-                <Cancel className="registerCancel" onClick={()=>setShowRegister(false)}/>
+                <CancelIcon className="registerCancel" onClick={()=>setShowRegister(false)}/>
        </div>
     )
 }
